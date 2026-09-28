@@ -1,0 +1,31 @@
+
+
+=== CRASH ===
+Traceback (most recent call last):
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\main.py", line 16, in main
+    run_daemon()
+    ~~~~~~~~~~^^
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\assistant\daemon.py", line 22, in run_daemon
+    wake = WakeWordDetector(config["wake_word"])
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\assistant\wake_word.py", line 15, in __init__
+    self.model = Model(
+                 ~~~~~^
+        wakeword_models=["hey_jarvis"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        inference_framework="onnx",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\openwakeword\utils.py", line 686, in wrapped
+    return func(*args, **new_kwargs)
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\openwakeword\model.py", line 153, in __init__
+    self.models[mdl_name] = ort.InferenceSession(mdl_path, sess_options=sessionOptions,
+                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                 providers=["CPUExecutionProvider"])
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 683, in __init__
+    self._create_inference_session(providers, provider_options, disabled_optimizers)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 778, in _create_inference_session
+    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model)
+onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\openwakeword\resources/models/hey_jarvis_v0.1.onnx failed:Load model C:\Users\neeru\OneDrive\Desktop\my coading journy\assistant\buddy-assistant\.venv\Lib\site-packages\openwakeword\resources/models/hey_jarvis_v0.1.onnx failed. File doesn't exist
